@@ -3,13 +3,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:aztec="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/AppTheme.Toolbar"
+        />
 
     <org.wordpress.aztec.toolbar.AztecToolbar
         android:id="@+id/formatting_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/aztec_format_bar_height"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        aztec:toolbarBackgroundColor="@color/toolbarBackgroundColor"
+        aztec:toolbarIconDisabledColor="@color/toolbarIconNormalColor"
+        aztec:toolbarIconNormalColor="@color/toolbarIconNormalColor"
+        aztec:toolbarIconHighlightColor="@color/toolbarIconHighlightColor"
+        >
     </org.wordpress.aztec.toolbar.AztecToolbar>
 
     <ScrollView
@@ -17,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/formatting_toolbar"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="?attr/actionBarSize"
         android:fillViewport="true">
 
         <FrameLayout
@@ -38,7 +53,9 @@
                 android:imeOptions="flagNoExtractUi"
                 android:fontFamily="serif"
                 aztec:historyEnable="true"
-                aztec:historySize="10"/>
+                aztec:historySize="10"
+                aztec:textColor="@android:color/background_dark"
+                />
 
             <org.wordpress.aztec.source.SourceViewEditText
                 android:id="@+id/source"

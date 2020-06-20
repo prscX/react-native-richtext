@@ -27,7 +27,12 @@ public class RNRichTextModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void Show(final ReadableMap props, final Callback onDone, final Callback onCancel) {
+    String title = props.getString("title");
+    String content = props.getString("content");
+
     Intent intent = new Intent(getCurrentActivity(), MainActivity.class);
+    intent.putExtra("title", title);
+    intent.putExtra("content", content);
 
     getCurrentActivity().startActivityForResult(intent, 1);
   }

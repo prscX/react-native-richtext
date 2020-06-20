@@ -9,7 +9,10 @@
         android:id="@+id/formatting_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/aztec_format_bar_height"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        aztec:toolbarIconNormalColor="@color/toolbarIconNormalColor"
+        aztec:toolbarIconHighlightColor="@color/toolbarIconHighlightColor"
+        >
     </org.wordpress.aztec.toolbar.AztecToolbar>
 
     <ScrollView
@@ -36,7 +39,9 @@
                 android:scrollbars="vertical"
                 android:imeOptions="flagNoExtractUi"
                 aztec:historyEnable="true"
-                aztec:historySize="10"/>
+                aztec:historySize="10"
+                aztec:textColor="@android:color/background_dark"
+                />
 
             <org.wordpress.aztec.source.SourceViewEditText
                 android:id="@+id/source"

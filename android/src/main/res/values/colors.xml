@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    <color name="headerBackgroundColor">#2777ae</color>
+    <color name="headerTitleColor">#ffffff</color>
+    <color name="headerBackColor">#ffffff</color>
+
+    <color name="toolbarBackgroundColor">#555555</color>
+    <color name="toolbarIconNormalColor">#ffffff</color>
+    <color name="toolbarIconHighlightColor">#ffffff</color>
 
     <color name="blue_light">#ff78dcfa</color>
     <color name="blue_medium">#ff00aadc</color>

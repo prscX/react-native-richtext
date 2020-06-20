@@ -17,16 +17,13 @@ import android.net.Uri
 import android.os.*
 import android.provider.MediaStore
 import android.util.DisplayMetrics
-import android.view.Gravity
-import android.view.Menu
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.widget.PopupMenu
 import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
 import androidx.core.content.FileProvider
 import org.wordpress.android.util.AppLog
@@ -55,7 +52,8 @@ import org.wordpress.aztec.util.AztecLog
 import org.xml.sax.Attributes
 import prscx.richtext.R
 import java.io.File
-import java.util.Random
+import java.util.*
+
 
 open class MainActivity : AppCompatActivity(),
         AztecText.OnImeBackListener,
@@ -373,15 +371,25 @@ open class MainActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val TITLE = intent.getStringExtra("title");
+        val CONTENT = intent.getStringExtra("content");
+
         // Setup hiding the action bar when the soft keyboard is displayed for narrow viewports
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
                 && !resources.getBoolean(R.bool.is_large_tablet_landscape)) {
             mHideActionBarOnSoftKeyboardUp = true
         }
 
+        val header = findViewById<Toolbar>(R.id.toolbar)
         val visualEditor = findViewById<AztecText>(R.id.aztec)
         val sourceEditor = findViewById<SourceViewEditText>(R.id.source)
         val toolbar = findViewById<AztecToolbar>(R.id.formatting_toolbar)
+
+        setSupportActionBar(header)
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
+        (this as AppCompatActivity).supportActionBar!!.setTitle(TITLE)
+        (this as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.headerBackgroundColor)))
 
         visualEditor.externalLogger = object : AztecLog.ExternalLogger {
             override fun log(message: String) {
@@ -438,8 +446,8 @@ open class MainActivity : AppCompatActivity(),
                 .addPlugin(VideoShortcodePlugin())
                 .addPlugin(AudioShortcodePlugin())
                 .addPlugin(HiddenGutenbergPlugin(visualEditor))
-                .addPlugin(galleryButton)
-                .addPlugin(cameraButton)
+//                .addPlugin(galleryButton)
+//                .addPlugin(cameraButton)
 
         // initialize the plugins, text & HTML
         if (!isRunningTest) {
@@ -451,14 +459,14 @@ open class MainActivity : AppCompatActivity(),
             aztec.visualEditor.setCalypsoMode(false)
             aztec.sourceEditor?.setCalypsoMode(false)
 
-            aztec.sourceEditor?.displayStyledAndFormattedHtml(EXAMPLE)
+            aztec.sourceEditor?.displayStyledAndFormattedHtml(CONTENT)
 
             aztec.addPlugin(CssUnderlinePlugin())
         }
 
         if (savedInstanceState == null) {
             if (!isRunningTest) {
-                aztec.visualEditor.fromHtml(EXAMPLE)
+                aztec.visualEditor.fromHtml(CONTENT)
             }
             aztec.initSourceEditorHistory()
         }
@@ -598,6 +606,7 @@ open class MainActivity : AppCompatActivity(),
                     aztec.sourceEditor?.redo()
                 }
             else -> {
+                finish();
             }
         }
 
