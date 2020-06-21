@@ -18,10 +18,7 @@ class RichText extends PureComponent {
       props,
       (...args) => {
         props.onDone && props.onDone(...args);
-      },
-      (...args) => {
-        props.onCancel && props.onCancel(...args);
-      },
+      }
     );
   }
 }

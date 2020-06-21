@@ -12,12 +12,15 @@
 RCT_EXPORT_MODULE()
 
 
-RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBlock)onDone onCancel:(RCTResponseSenderBlock)onCancel) {
+RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBlock)onDone) {
 
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *content = [props objectForKey: @"content"];
         
-        EditorDemoController *controller = [[EditorDemoController alloc] initWithSampleHTML:content wordPressMode:TRUE];
+        EditorDemoController *controller = [[EditorDemoController alloc] initWithSampleHTML:content wordPressMode:YES];
+        [controller setOnDismiss:^(NSString *content){
+            onDone(@[content]);
+        }];
         
         id<UIApplicationDelegate> app = [[UIApplication sharedApplication] delegate];
         UINavigationController *rootViewController = ((UINavigationController*) app.window.rootViewController);
@@ -30,6 +33,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBl
         [rootViewController presentViewController:controller animated:YES completion:nil];
     });
 }
+
 
 @end
   

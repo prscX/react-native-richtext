@@ -139,6 +139,7 @@ import WordPressEditor
 
     let sampleHTML: String?
     let wordPressMode: Bool
+    @objc public var onDismiss:((String) -> ())?
 
     private lazy var optionsTablePresenter = OptionsTablePresenter(presentingViewController: self, presentingTextView: richTextView)
 
@@ -233,6 +234,10 @@ import WordPressEditor
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
+        if let dismissHandler = self.onDismiss {
+            dismissHandler(self.editorView.getHTML())
+        }
 
         let nc = NotificationCenter.default
         nc.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)

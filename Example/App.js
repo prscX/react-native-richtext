@@ -155,12 +155,9 @@ const App: () => React$Node = () => {
     RNRichText.Show({
       title: 'Editor',
       content: EXAMPLE,
-      onDone: () => {
-        console.log('on done');
-      },
-      onCancel: () => {
-        console.log('on cancel');
-      },
+      onDone: (content) => {
+        console.log('on done: ' + content);
+      }
     });
   }
 
