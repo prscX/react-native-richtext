@@ -5,11 +5,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/AppTheme.Toolbar"
+        />
+
     <org.wordpress.aztec.toolbar.AztecToolbar
         android:id="@+id/formatting_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/aztec_format_bar_height"
         android:layout_alignParentBottom="true"
+        aztec:toolbarBackgroundColor="@color/toolbarBackgroundColor"
+        aztec:toolbarIconDisabledColor="@color/toolbarIconNormalColor"
         aztec:toolbarIconNormalColor="@color/toolbarIconNormalColor"
         aztec:toolbarIconHighlightColor="@color/toolbarIconHighlightColor"
         >

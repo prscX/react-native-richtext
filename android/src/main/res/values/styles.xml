@@ -15,4 +15,11 @@
         <item name="titleTextColor">@color/headerTitleColor</item>
     </style>
 
+    <style name="AztecToolbarStyle">
+        <item name="advanced">false</item>
+        <item name="toolbarIconNormalColor">@color/toolbarIconNormalColor</item>
+        <item name="toolbarIconHighlightColor">@color/toolbarIconHighlightColor</item>
+        <item name="toolbarIconDisabledColor">@color/toolbarIconDisabledColor</item>
+    </style>
+
 </resources>

@@ -7,7 +7,8 @@
 
     <color name="toolbarBackgroundColor">#555555</color>
     <color name="toolbarIconNormalColor">#ffffff</color>
-    <color name="toolbarIconHighlightColor">#ffffff</color>
+    <color name="toolbarIconHighlightColor">@color/almost_black</color>
+    <color name="toolbarIconDisabledColor">@color/grey_lighten_20</color>
 
     <color name="blue_light">#ff78dcfa</color>
     <color name="blue_medium">#ff00aadc</color>
