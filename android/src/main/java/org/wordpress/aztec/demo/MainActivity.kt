@@ -606,7 +606,11 @@ open class MainActivity : AppCompatActivity(),
                     aztec.sourceEditor?.redo()
                 }
             else -> {
-                finish();
+                val returnIntent = Intent()
+                returnIntent.putExtra("content", aztec.visualEditor.toHtml(false))
+                setResult(Activity.RESULT_OK, returnIntent)
+
+                finish()
             }
         }
 
