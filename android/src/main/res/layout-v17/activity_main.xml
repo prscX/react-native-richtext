@@ -20,9 +20,6 @@
         android:layout_height="@dimen/aztec_format_bar_height"
         android:layout_alignParentBottom="true"
         aztec:toolbarBackgroundColor="@color/toolbarBackgroundColor"
-        aztec:toolbarIconDisabledColor="@color/toolbarIconNormalColor"
-        aztec:toolbarIconNormalColor="@color/toolbarIconNormalColor"
-        aztec:toolbarIconHighlightColor="@color/toolbarIconHighlightColor"
         >
     </org.wordpress.aztec.toolbar.AztecToolbar>
 
