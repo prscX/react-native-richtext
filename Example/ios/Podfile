@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '11.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 def add_flipper_pods!(versions = {})
@@ -77,6 +77,14 @@ target 'Example' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+
+  # use_frameworks! :linkage => :static
+
+  # use_frameworks!
+
+  # pod 'WordPress-Aztec-iOS', "1.19.2"
+  # pod "WordPress-Editor-iOS", "1.19.2"
+
   target 'ExampleTests' do
     inherit! :complete
     # Pods for testing
@@ -92,6 +100,24 @@ target 'Example' do
   post_install do |installer|
     flipper_post_install(installer)
   end
+
+
+  # $static_framework = ['FlipperKit', 'Flipper', 'Flipper-Folly',
+  #   'CocoaAsyncSocket', 'ComponentKit', 'Flipper-DoubleConversion',
+  #   'Flipper-Glog', 'Flipper-PeerTalk', 'Flipper-RSocket', 'Yoga', 'YogaKit',
+  #   'CocoaLibEvent', 'OpenSSL-Universal', 'boost-for-react-native']
+  
+  # pre_install do |installer|
+  #   Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+  #   installer.pod_targets.each do |pod|
+  #       if $static_framework.include?(pod.name)
+  #         def pod.build_type;
+  #           Pod::BuildType.static_library
+  #         end
+  #       end
+  #     end
+  # end
+
 end
 
 target 'Example-tvOS' do

@@ -1,24 +1,25 @@
+require 'json'
+
+package = JSON.parse(File.read(File.join(__dir__, '../package.json')))
 
 Pod::Spec.new do |s|
-  s.name         = "RNRichText"
-  s.version      = "1.0.0"
-  s.summary      = "RNRichText"
-  s.description  = <<-DESC
-                  RNRichText
-                   DESC
-  s.homepage     = ""
-  s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "author" => "author@domain.cn" }
-  s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/RNRichText.git", :tag => "master" }
-  s.source_files  = "RNRichText/**/*.{h,m}"
-  s.requires_arc = true
+  s.name                   = 'RNRichText'
+  s.version                = package['version']
+  s.summary                = package['description']
+  s.description            = package['description']
+  s.homepage               = package['homepage']
+  s.license                = package['license']
+  s.author                 = package['author']
+  s.source                 = { :git => 'https://github.com/prscX/react-native-richtext.git', :tag => s.version }
 
+  s.platform               = :ios, '11.0'
+  s.ios.deployment_target  = '11.0'
 
-  s.dependency "React"
-  #s.dependency "others"
+  s.preserve_paths         = 'LICENSE', 'package.json'
+  s.source_files           = '**/*.{h,m,swift}'
+  s.dependency             'React'
+  s.dependency             'WordPress-Aztec-iOS'
+  s.dependency             'WordPress-Editor-iOS'
+  s.dependency             'Gridicons'
 
 end
-
-  
