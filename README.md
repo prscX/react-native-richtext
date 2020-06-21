@@ -1,9 +1,9 @@
 <h1 align="center">
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@prscx/react-native-richtext"><img src="http://img.shields.io/npm/v/react-native-richtext.svg?style=flat" /></a>
+  <a href="https://www.npmjs.com/package/@prscx/react-native-richtext"><img src="http://img.shields.io/npm/v/@prscx/react-native-richtext.svg?style=flat" /></a>
   <a href="https://github.com/prscX/react-native-richtext/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" /></a>
-  <a href="https://github.com/prscX/react-native-richtext#License"><img src="https://img.shields.io/npm/l/react-native-richtext.svg?style=flat" /></a>
+  <a href="https://github.com/prscX/react-native-richtext#License"><img src="https://img.shields.io/npm/l/@prscx/react-native-richtext.svg?style=flat" /></a>
 </p>
 
 
