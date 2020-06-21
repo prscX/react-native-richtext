@@ -97,6 +97,25 @@ RNRichText.Show({
 | ---------------------- | ------------------- | ------- | ------------------------------------------------ |
 | `title`     | `string`            |         | Specify html content which needs to be formatted                 |
 
+**Below are the color properties using which you can customize your branding colors, define it in your app/res/colors.xml**
+
+```xml
+<resources>
+
+    <color name="headerBackgroundColor">#01a9da</color>
+    <color name="headerTitleColor">#ffffff</color>
+    <color name="headerBackColor">#ffffff</color>
+
+    <color name="toolbarBackgroundColor">@color/white</color>
+    <color name="toolbarIconNormalColor">@color/grey_darken_20</color>
+    <color name="toolbarIconHighlightColor">@color/almost_black</color>
+    <color name="toolbarIconDisabledColor">@color/grey_lighten_20</color>
+
+</resources>
+
+```
+
+
 ## ✨ Credits
 
 - Android - AztecEditor: [wordpress-mobile/AztecEditor-Android](https://github.com/wordpress-mobile/AztecEditor-Android)
