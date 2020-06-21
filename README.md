@@ -21,7 +21,7 @@ This library is a React Native bridge around native rich text libraries. It allo
 > **Note**
 > This library is support ReactNative >= 62
 
-<img src="https://github.com/wordpress-mobile/AztecEditor-Android/raw/develop/visual_editor.png" />
+<img align="center" width=360px height=640px src="https://github.com/wordpress-mobile/AztecEditor-Android/raw/develop/visual_editor.png" alt="Visual Editor"/> <img align="center" width=360px height=640px src="https://github.com/wordpress-mobile/AztecEditor-Android/raw/develop/code_editor.png" alt="Visual Editor"/>
 
 ## 📖 Getting started
 
