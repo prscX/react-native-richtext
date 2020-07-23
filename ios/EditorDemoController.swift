@@ -139,22 +139,25 @@ import WordPressEditor
 
     let sampleHTML: String?
     let wordPressMode: Bool
+    let titleProp: String
     @objc public var onDismiss:((String) -> ())?
 
     private lazy var optionsTablePresenter = OptionsTablePresenter(presentingViewController: self, presentingTextView: richTextView)
 
     // MARK: - Lifecycle Methods
-    @objc public init(withSampleHTML sampleHTML: String? = nil, wordPressMode: Bool) {
+    @objc public init(withSampleHTML sampleHTML: String? = nil, title: String, wordPressMode: Bool) {
         
         self.sampleHTML = sampleHTML
         self.wordPressMode = wordPressMode
-        
+        self.titleProp = title
+
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         sampleHTML = nil
         wordPressMode = false
+        titleProp = ""
         
         super.init(coder: aDecoder)
     }
@@ -211,6 +214,7 @@ import WordPressEditor
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(changeFont))
         editorView.setHTML(html)
         editorView.becomeFirstResponder()
+        titleTextView.text = self.titleProp
     }
 
     @objc func changeFont() {
