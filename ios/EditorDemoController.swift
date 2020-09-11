@@ -239,13 +239,19 @@ import WordPressEditor
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if let dismissHandler = self.onDismiss {
-            dismissHandler(self.editorView.getHTML())
-        }
-
         let nc = NotificationCenter.default
         nc.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         nc.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if let dismissHandler = self.onDismiss {
+            if animated {
+                dismissHandler(self.editorView.getHTML())
+            }
+        }
     }
 
 
