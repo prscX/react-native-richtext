@@ -37,7 +37,7 @@ import WordPressEditor
     }()
 
     fileprivate(set) lazy var textViewAttachmentDelegate: TextViewAttachmentDelegate = {
-        return TextViewAttachmentDelegateProvider(baseController: self, attachmentTextAttributes: Constants.mediaMessageAttributes)
+        return TextViewAttachmentDelegateProvider(baseController: self, attachmentTextAttributes: Constants.mediaMessageAttributes, custom:self.custom)
     }()
     
     fileprivate(set) lazy var editorView: Aztec.EditorView = {
@@ -140,16 +140,19 @@ import WordPressEditor
     let sampleHTML: String?
     let wordPressMode: Bool
     let titleProp: String
+    let custom: NSDictionary
+
     @objc public var onDismiss:((String) -> ())?
 
     private lazy var optionsTablePresenter = OptionsTablePresenter(presentingViewController: self, presentingTextView: richTextView)
 
     // MARK: - Lifecycle Methods
-    @objc public init(withSampleHTML sampleHTML: String? = nil, title: String, wordPressMode: Bool) {
+    @objc public init(withSampleHTML sampleHTML: String? = nil, title: String, wordPressMode: Bool, custom: NSDictionary) {
         
         self.sampleHTML = sampleHTML
         self.wordPressMode = wordPressMode
         self.titleProp = title
+        self.custom = custom
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -158,6 +161,7 @@ import WordPressEditor
         sampleHTML = nil
         wordPressMode = false
         titleProp = ""
+        custom = [:]
         
         super.init(coder: aDecoder)
     }

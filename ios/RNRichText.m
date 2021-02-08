@@ -17,8 +17,9 @@ RCT_EXPORT_METHOD(Show:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBl
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *title = [props objectForKey: @"title"];
         NSString *content = [props objectForKey: @"content"];
+        NSDictionary *custom = [props objectForKey: @"custom"];
         
-        EditorDemoController *controller = [[EditorDemoController alloc] initWithSampleHTML:content title:title wordPressMode:YES];
+        EditorDemoController *controller = [[EditorDemoController alloc] initWithSampleHTML:content title:title wordPressMode:YES custom:custom];
         [controller setOnDismiss:^(NSString *content){
             onDone(@[content]);
         }];
