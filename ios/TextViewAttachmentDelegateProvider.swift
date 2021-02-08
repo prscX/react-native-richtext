@@ -19,7 +19,6 @@ class TextViewAttachmentDelegateProvider: NSObject, TextViewAttachmentDelegate {
     }
 
     func textView(_ textView: TextView, attachment: NSTextAttachment, imageAt url: URL, onSuccess success: @escaping (UIImage) -> Void, onFailure failure: @escaping () -> Void) {
-        
         switch attachment {
         case let videoAttachment as VideoAttachment:
             guard let posterURL = videoAttachment.posterURL else {
