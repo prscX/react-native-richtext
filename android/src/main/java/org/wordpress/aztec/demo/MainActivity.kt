@@ -431,7 +431,7 @@ open class MainActivity : AppCompatActivity(),
         })
 
         aztec = Aztec.with(visualEditor, sourceEditor, toolbar, this)
-                .setImageGetter(GlideImageLoader(this))
+                .setImageGetter(GlideImageLoader(this, CUSTOM_PROPS))
                 .setVideoThumbnailGetter(GlideVideoThumbnailLoader(this))
                 .setOnImeBackListener(this)
                 .setOnTouchListener(this)

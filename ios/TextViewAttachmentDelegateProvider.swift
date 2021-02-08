@@ -164,22 +164,64 @@ private extension TextViewAttachmentDelegateProvider {
     }
 
     func downloadImage(from url: URL, success: @escaping (UIImage) -> Void, onFailure failure: @escaping () -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
-            DispatchQueue.main.async {
-                guard self != nil else {
-                    return
-                }
+        let customProps = self.custom
+        if(FileManager.default.fileExists(atPath: url.absoluteString)){
+              do{
+                let data = FileManager.default.contents(atPath: url.absoluteString)
+                let image = UIImage(data: data!, scale: UIScreen.main.scale)
+                success(image!)
+                return
+              } catch {
+                  print (error)
+              }
+        } else {
+            var headers = customProps["headers"]
+            var request = URLRequest(url: url)
+            request.allHTTPHeaderFields = headers as! Dictionary<String, String>
+            
+            let task = URLSession.shared.downloadTask(with: request) {[weak self] (tempFileUrl, response, error) in
+                    do {
+                        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+                        let documentDirectoryPath:String = path[0]
+                        var destinationPath = "/RTF"
 
-                guard error == nil, let data = data, let image = UIImage(data: data, scale: UIScreen.main.scale) else {
-                    failure()
-                    return
-                }
+                        if !FileManager.default.fileExists(atPath: documentDirectoryPath.appendingFormat(destinationPath)){
+                            do {
+                                try FileManager.default.createDirectory(atPath: documentDirectoryPath.appendingFormat(destinationPath), withIntermediateDirectories: true, attributes: nil)
+                            } catch {
+                                print("Error")
+                            }
+                        }
+                        
+                        destinationPath += "/"+url.path.replacingOccurrences(of: "/", with: "")+""
+                            
+                            var destinationURL = URL(fileURLWithPath: documentDirectoryPath.appendingFormat(destinationPath))
+                            let fileManager = FileManager()
+                            do{
+                                try fileManager.moveItem(at: tempFileUrl!, to: destinationURL)
+                                let DATA = try Data(contentsOf: destinationURL)
+                                DispatchQueue.main.async {
+                                    guard self != nil else {
+                                        return
+                                    }
+                                   
+                                    guard error == nil, let image = UIImage(data: DATA, scale: UIScreen.main.scale) else {
+                                        failure()
+                                        return
+                                    }
 
-                success(image)
-            }
+                                    success(image)
+                                }
+                            } catch {
+                                print(error)
+                            }
+
+                        } catch {
+                            print("Error")
+                        }
+                }.resume()
+            
         }
-
-        task.resume()
     }
 }
 
