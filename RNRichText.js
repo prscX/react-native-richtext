@@ -11,6 +11,7 @@ class RichText extends PureComponent {
   };
 
   static defaultProps = {
+    custom: {}
   };
 
   static Show(props) {

@@ -53,6 +53,7 @@ import org.xml.sax.Attributes
 import prscx.richtext.R
 import java.io.File
 import java.util.*
+import kotlin.collections.HashMap
 
 
 open class MainActivity : AppCompatActivity(),
@@ -373,6 +374,7 @@ open class MainActivity : AppCompatActivity(),
 
         val TITLE = intent.getStringExtra("title");
         val CONTENT = intent.getStringExtra("content");
+        val CUSTOM_PROPS = intent.getSerializableExtra("customProps") as HashMap<Any, Any>
 
         // Setup hiding the action bar when the soft keyboard is displayed for narrow viewports
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE

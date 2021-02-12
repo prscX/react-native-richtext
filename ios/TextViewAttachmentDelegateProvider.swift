@@ -10,14 +10,15 @@ class TextViewAttachmentDelegateProvider: NSObject, TextViewAttachmentDelegate {
     fileprivate var currentSelectedAttachment: MediaAttachment?
     let baseController: UIViewController
     let attachmentTextAttributes: [NSAttributedString.Key: Any]
+    let custom: NSDictionary
 
-    init(baseController: UIViewController, attachmentTextAttributes: [NSAttributedString.Key: Any]) {
+    init(baseController: UIViewController, attachmentTextAttributes: [NSAttributedString.Key: Any], custom:NSDictionary) {
         self.baseController = baseController
         self.attachmentTextAttributes = attachmentTextAttributes
+        self.custom = custom
     }
 
     func textView(_ textView: TextView, attachment: NSTextAttachment, imageAt url: URL, onSuccess success: @escaping (UIImage) -> Void, onFailure failure: @escaping () -> Void) {
-
         switch attachment {
         case let videoAttachment as VideoAttachment:
             guard let posterURL = videoAttachment.posterURL else {
