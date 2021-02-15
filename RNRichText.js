@@ -11,12 +11,11 @@ class RichText extends PureComponent {
   };
 
   static defaultProps = {
-    custom: {}
   };
 
   static Show(props) {
     RNRichText.Show(
-      props,
+      {...props, custom: props.custom || {}},
       (...args) => {
         props.onDone && props.onDone(...args);
       }
