@@ -1005,15 +1005,15 @@ extension EditorDemoController {
 
         if #available(iOS 13.0, *) {
             toolbar.backgroundColor = UIColor.systemGroupedBackground
-            toolbar.tintColor = UIColor.secondaryLabel
+            toolbar.tintColor = UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1.00)
             toolbar.highlightedTintColor = UIColor.systemBlue
-            toolbar.selectedTintColor = UIColor.systemBlue
+            toolbar.selectedTintColor = UIColor(red: 0.06, green: 0.02, blue: 0.18, alpha: 1.00)
             toolbar.disabledTintColor = .systemGray4
             toolbar.dividerTintColor = UIColor.separator
         } else {
-            toolbar.tintColor = .gray
+            toolbar.tintColor = UIColor(red: 0.48, green: 0.48, blue: 0.48, alpha: 1.00)
             toolbar.highlightedTintColor = .blue
-            toolbar.selectedTintColor = view.tintColor
+            toolbar.selectedTintColor = UIColor(red: 0.06, green: 0.02, blue: 0.18, alpha: 1.00)
             toolbar.disabledTintColor = .lightGray
             toolbar.dividerTintColor = .gray
         }
