@@ -2,5 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="prscx.richtext">
 
+         <application>
+            <provider
+            android:name=".RNRichTextProvider"
+            android:authorities="org.wordpress.aztec.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" >
+            </meta-data>
+
+            </provider>
+         </application>
+        
+
 </manifest>
   
