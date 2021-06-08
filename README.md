@@ -25,7 +25,7 @@ This library is a React Native bridge around native rich text libraries. It allo
 
 ## 📖 Getting started
 
-`$ yarn add react-native-richtext`
+`$ yarn add @prscx/react-native-richtext`
 
 - **iOS**
 
