@@ -461,14 +461,18 @@ open class MainActivity : AppCompatActivity(),
             aztec.visualEditor.setCalypsoMode(false)
             aztec.sourceEditor?.setCalypsoMode(false)
 
-            aztec.sourceEditor?.displayStyledAndFormattedHtml(CONTENT)
+            if (CONTENT != null) {
+                aztec.sourceEditor?.displayStyledAndFormattedHtml(CONTENT)
+            }
 
             aztec.addPlugin(CssUnderlinePlugin())
         }
 
         if (savedInstanceState == null) {
             if (!isRunningTest) {
-                aztec.visualEditor.fromHtml(CONTENT)
+                if (CONTENT != null) {
+                    aztec.visualEditor.fromHtml(CONTENT)
+                }
             }
             aztec.initSourceEditorHistory()
         }
@@ -507,7 +511,7 @@ open class MainActivity : AppCompatActivity(),
         }
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
 
         aztec.initSourceEditorHistory()
@@ -519,7 +523,7 @@ open class MainActivity : AppCompatActivity(),
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
 
         if (mediaUploadDialog != null && mediaUploadDialog!!.isShowing) {
