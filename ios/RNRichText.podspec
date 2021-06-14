@@ -12,12 +12,12 @@ Pod::Spec.new do |s|
   s.author                 = package['author']
   s.source                 = { :git => 'https://github.com/prscX/react-native-richtext.git', :tag => s.version }
 
-  s.platform               = :ios, '11.0'
-  s.ios.deployment_target  = '11.0'
+  s.platform               = :ios, '13.0'
+  s.ios.deployment_target  = '13.0'
 
   s.preserve_paths         = 'LICENSE', 'package.json'
   s.source_files           = '**/*.{h,m,swift}'
-  s.dependency             'React'
+  s.dependency             'React-Core'
   s.dependency             'WordPress-Aztec-iOS'
   s.dependency             'WordPress-Editor-iOS'
   s.dependency             'Gridicons'
