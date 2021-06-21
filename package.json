@@ -1,6 +1,6 @@
 {
     "name": "@prscx/react-native-richtext",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "React Native: Native Rich Text",
     "main": "RNRichText.js",
     "homepage": "https://github.com/prscX/react-native-richtext.git",
