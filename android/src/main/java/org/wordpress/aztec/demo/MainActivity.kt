@@ -256,9 +256,9 @@ open class MainActivity : AppCompatActivity(),
                     //  to correctly set the input density to 160 ourselves.
                     val options = BitmapFactory.Options()
                     options.inDensity = DisplayMetrics.DENSITY_DEFAULT
-                    bitmap = BitmapFactory.decodeStream(stream, null, options)
+                    //bitmap = BitmapFactory.decodeStream(stream, null, options)
 
-                    insertImageAndSimulateUpload(bitmap, mediaPath)
+                    //insertImageAndSimulateUpload(bitmap, mediaPath)
                 }
                 REQUEST_MEDIA_CAMERA_VIDEO -> {
                     mediaPath = data?.data.toString()

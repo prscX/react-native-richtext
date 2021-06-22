@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.example">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,7 +9,7 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="true"
-      android:theme="@style/AppTheme" >
+      android:theme="@style/AppTheme">
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -21,8 +21,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
-        <activity android:name="org.wordpress.aztec.demo.MainActivity" />
+      <activity android:name="org.wordpress.aztec.demo.MainActivity" />
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
-
 </manifest>

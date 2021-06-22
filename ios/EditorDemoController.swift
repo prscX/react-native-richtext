@@ -33,7 +33,7 @@ import WordPressEditor
     }
 
     fileprivate(set) lazy var mediaInserter: MediaInserter = {
-        return MediaInserter(textView: self.richTextView, attachmentTextAttributes: Constants.mediaMessageAttributes, custom:self.custom)
+        return MediaInserter(textView: self.richTextView, attachmentTextAttributes: Constants.mediaMessageAttributes)
     }()
 
     fileprivate(set) lazy var textViewAttachmentDelegate: TextViewAttachmentDelegate = {

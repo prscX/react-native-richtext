@@ -10,19 +10,19 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react": "17.0.1",
+    "react-native": "0.64.2",
     "@prscx/react-native-richtext": "../"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/runtime": "^7.10.2",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "babel-jest": "^26.0.1",
-    "eslint": "^7.2.0",
-    "jest": "^26.0.1",
-    "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.11.0"
+    "@babel/core": "^7.14.6",
+    "@babel/runtime": "^7.14.6",
+    "@react-native-community/eslint-config": "^3.0.0",
+    "babel-jest": "^27.0.2",
+    "eslint": "^7.29.0",
+    "jest": "^27.0.4",
+    "metro-react-native-babel-preset": "^0.66.0",
+    "react-test-renderer": "17.0.1"
   },
   "jest": {
     "preset": "react-native"
