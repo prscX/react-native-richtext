@@ -5,7 +5,7 @@
          <application>
             <provider
             android:name=".RNRichTextProvider"
-            android:authorities="org.wordpress.aztec.provider"
+            android:authorities="${applicationId}.org.wordpress.aztec.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
 
